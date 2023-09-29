@@ -16,4 +16,15 @@ function openAccordion(accordionElement) {
 	}
 
 	accordionElement.classList.add("active")
+	closeOtherAccordions(accordionElement)
+}
+
+function closeOtherAccordions(accordionElement) {
+	for (i = 0; i < questionContainers.length; i++) {
+		let otherElement = questionContainers[i]
+
+		if (otherElement != accordionElement) {
+			otherElement.classList.remove("active")
+		}
+	}
 }
