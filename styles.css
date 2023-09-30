@@ -18,6 +18,9 @@
 
 	/* Shadow */
 	--shadow-soft-violet: hsla(273, 75%, 66%, 0.15);
+
+	/* Background and Illustration Mobile */
+	--illustration-size-mobile: min(70%, 300px);
 }
 
 * {
@@ -35,91 +38,108 @@ body {
 	background: linear-gradient(var(--soft-violet), var(--soft-blue));
 }
 
-@media (min-width: 800px) {
+@media (min-width: 925px) {
 	body {
 		display: grid;
 		place-items: center;
-		padding: 2rem;
+		padding: 4rem;
 	}
 }
 
 main {
-	/* display: flex;
-	gap: 2rem;
-	flex-direction: column;
- */
 	width: 100%;
 	max-width: 1000px;
 
-	background-color: white;
+	background: white url(images/bg-pattern-mobile.svg) no-repeat top center;
+	background-size: var(--illustration-size-mobile);
 
-	padding: 0 2rem 4rem;
 	border-radius: 2rem;
 	box-shadow: 0 75px 3rem -3rem rgba(0, 0, 0, 0.2);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 925px) {
 	main {
-		gap: 3rem;
-		flex-direction: row;
-		justify-content: center;
+		display: grid;
+		grid-template-columns: 50% 50%;
 
-		padding: 75px 100px;
-		overflow: hidden;
+		background: white url(images/bg-pattern-desktop.svg) no-repeat;
+		background-position: -570px -300px;
 	}
 	section {
 		flex: 1 0 0;
+		height: 560px;
 	}
 }
 
 /*-------------------------------------------------------------*/
 /* Illustration Section */
 /*-------------------------------------------------------------*/
+.illustration-section {
+	display: grid;
+	place-items: center;
+}
 
 .illustration__mobile {
-	text-align: center;
 	position: relative;
-}
+	top: -59%;
 
-.illustration__mobile .illustration-woman-online {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: -103%;
-
-	margin: 0 auto;
-}
-
-.illustration__mobile .bg-pattern,
-.illustration__mobile .illustration-woman-online {
-	max-width: 300px;
-	width: 90%;
+	width: var(--illustration-size-mobile);
 }
 
 .illustration__desktop {
 	display: none;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 925px) {
 	.illustration__mobile {
 		display: none;
 	}
 
 	.illustration__desktop {
 		display: block;
+		position: relative;
+
+		width: 100%;
 		height: 100%;
 	}
 
-	.illustration-woman-online,
-	.illustration-box,
-	.bg-pattern {
-		display: none;
+	.overflow-wrapper {
+		overflow: hidden;
+		height: 100%;
+	}
+
+	.illustration-woman-online {
+		position: relative;
+		left: -74px;
+		top: 46px;
+	}
+
+	.illustration-box {
+		position: absolute;
+		top: 184px;
+		left: -92px;
+		z-index: 1;
 	}
 }
 
 /*-------------------------------------------------------------*/
 /* FAQ Section */
 /*-------------------------------------------------------------*/
+.faq-section {
+	padding: 0 2rem 4rem;
+
+	/* subtracts from the margin-top by a percentage of --illustration-size-mobile so 
+	the spacing between this element and the illustration remains consistent */
+	margin-top: calc(var(--illustration-size-mobile) * 0.2 * -1);
+}
+
+@media (min-width: 925px) {
+	.faq-section {
+		padding: 70px 125px 100px 0;
+		margin-top: 0;
+	}
+}
+
 h1 {
 	text-align: center;
 	font-size: 32px;
@@ -127,7 +147,7 @@ h1 {
 	margin-bottom: 1rem;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 925px) {
 	h1 {
 		text-align: left;
 		margin-bottom: 2rem;
@@ -177,4 +197,13 @@ h1 {
 
 	margin-bottom: 1.5rem;
 	padding-right: 2rem;
+}
+
+@media (min-width: 925px) {
+	.question p {
+		font-size: 15px;
+	}
+	.answer {
+		font-size: 13px;
+	}
 }
