@@ -63,11 +63,11 @@ main {
 		grid-template-columns: 50% 50%;
 
 		background: white url(images/bg-pattern-desktop.svg) no-repeat;
-		background-position: -570px -300px;
+		background-position: -570px -290px;
 	}
 	section {
 		flex: 1 0 0;
-		height: 560px;
+		height: 540px;
 	}
 }
 
@@ -111,12 +111,12 @@ main {
 	.illustration-woman-online {
 		position: relative;
 		left: -74px;
-		top: 46px;
+		top: 82px;
 	}
 
 	.illustration-box {
 		position: absolute;
-		top: 184px;
+		top: 220px;
 		left: -92px;
 		z-index: 1;
 	}
@@ -135,7 +135,7 @@ main {
 
 @media (min-width: 925px) {
 	.faq-section {
-		padding: 70px 125px 100px 0;
+		padding: 65px 125px 65px 0;
 		margin-top: 0;
 	}
 }
@@ -174,8 +174,16 @@ h1 {
 	color: var(--very-dark-desaturated-blue);
 }
 
+.question:hover > p {
+	color: var(--soft-red);
+}
+
 .accordion_question-answer.active > .question > p {
 	font-weight: 700;
+}
+
+.accordion_question-answer.active > .question:hover > p {
+	color: var(--very-dark-desaturated-blue);
 }
 
 .accordion_question-answer > .question > svg {
@@ -206,13 +214,4 @@ h1 {
 	line-height: 1.5rem;
 
 	overflow: hidden;
-}
-
-@media (min-width: 925px) {
-	.question p {
-		font-size: 15px;
-	}
-	.answer {
-		font-size: 13px;
-	}
 }
