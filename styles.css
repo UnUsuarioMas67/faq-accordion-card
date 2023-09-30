@@ -162,41 +162,50 @@ h1 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
+	
 	padding: 1.5rem 0;
 
 	cursor: pointer;
 	user-select: none;
 }
 
-.question p {
+.question > p {
 	font-size: 14px;
 	color: var(--very-dark-desaturated-blue);
 }
 
-.accordion_question-answer.active .question p {
+.accordion_question-answer.active > .question > p {
 	font-weight: 700;
 }
 
-.accordion_question-answer .question svg {
+.accordion_question-answer > .question > svg {
 	transition: transform ease-in-out .2s;
 }
 
-.accordion_question-answer.active .question svg {
+.accordion_question-answer.active > .question > svg {
 	transform: rotate(180deg);
 }
 
-.answer {
-	display: none;
+.answer-wrapper {
+	display: grid;
+	grid-template-rows: 0fr;
+
+	transition: grid-template-rows 0.2s,
+				padding 0.2s;
 }
 
-.accordion_question-answer.active .answer {
-	display: block;
+.accordion_question-answer.active > .answer-wrapper {
+	grid-template-rows: 1fr;
+	padding-bottom: 1.5rem;
+}
+
+.answer {
+	padding-right: 2rem;
+
 	color: var(--dark-grayish-blue);
 	line-height: 1.5rem;
 
-	margin-bottom: 1.5rem;
-	padding-right: 2rem;
+	overflow: hidden;
 }
 
 @media (min-width: 925px) {
